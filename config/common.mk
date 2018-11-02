@@ -5,6 +5,10 @@ PRODUCT_BRAND ?= Nezuko
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
+# Priv-app permissions
+PRODUCT_COPY_FILES += \
+    vendor/nezuko/prebuilt/common/etc/permissions/privapp-permissions-nezuko.xml:system/etc/permissions/privapp-permissions-nezuko.xml
+
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
