@@ -39,6 +39,7 @@ SOONG_CONFIG_nezukoGlobalVars += \
     target_ld_shim_libs \
     target_process_sdk_version_override \
     target_surfaceflinger_fod_lib \
+    target_uses_prebuilt_dynamic_partitions \
     uses_camera_parameter_lib
 
 SOONG_CONFIG_NAMESPACES += nezukoNvidiaVars
@@ -75,6 +76,7 @@ SOONG_CONFIG_nezukoQcomVars_uses_qcom_bsp_legacy := $(TARGET_USES_QCOM_BSP_LEGAC
 SOONG_CONFIG_nezukoQcomVars_uses_qti_camera_device := $(TARGET_USES_QTI_CAMERA_DEVICE)
 SOONG_CONFIG_nezukoGlobalVars_disable_postrender_cleanup := $(TARGET_DISABLE_POSTRENDER_CLEANUP)
 SOONG_CONFIG_nezukoGlobalVars_has_memfd_backport := $(TARGET_HAS_MEMFD_BACKPORT)
+SOONG_CONFIG_nezukoGlobalVars_target_uses_prebuilt_dynamic_partitions := $(TARGET_USES_PREBUILT_DYNAMIC_PARTITIONS)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0
