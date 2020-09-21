@@ -1,10 +1,5 @@
-# Inherit common mobile Lineage stuff
-$(call inherit-product, vendor/lineage/config/common.mk)
-
-# Default notification/alarm sounds
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.notification_sound=Argon.ogg \
-    ro.config.alarm_alert=Hassium.ogg
+# Inherit common mobile nezuko stuff
+$(call inherit-product, vendor/nezuko/config/common.mk)
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
@@ -22,32 +17,10 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     Exchange2
 
-# Lineage packages
+# Nezuko packages
 PRODUCT_PACKAGES += \
-    AudioFX \
-    Backgrounds \
-    Eleven \
-    Etar \
-    Jelly \
-    LockClock \
-    Profiles \
-    TrebuchetQuickStep \
-    WeatherProvider
-
-# Accents
-PRODUCT_PACKAGES += \
-    LineageBlackTheme \
-    LineageDarkTheme \
-    LineageBlackAccent \
-    LineageBlueAccent \
-    LineageBrownAccent \
-    LineageCyanAccent \
-    LineageGreenAccent \
-    LineageOrangeAccent \
-    LineagePinkAccent \
-    LineagePurpleAccent \
-    LineageRedAccent \
-    LineageYellowAccent
+    NezukoWalls \
+    Profiles
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -60,10 +33,6 @@ PRODUCT_PACKAGES += \
     font_log.png \
     libhealthd.lineage
 endif
-
-# Customizations
-PRODUCT_PACKAGES += \
-    LineageNavigationBarNoHint
 
 # Media
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
