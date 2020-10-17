@@ -32,6 +32,7 @@ SOONG_CONFIG_nezukoGlobalVars += \
     bootloader_message_offset \
     disable_postrender_cleanup \
     has_legacy_camera_hal1 \
+    has_memfd_backport \
     ignores_ftp_pptp_conntrack_failure \
     needs_netd_direct_connect_rule \
     target_init_vendor_lib \
@@ -73,6 +74,7 @@ SOONG_CONFIG_nezukoQcomVars_uses_pre_uplink_features_netmgrd := $(TARGET_USES_PR
 SOONG_CONFIG_nezukoQcomVars_uses_qcom_bsp_legacy := $(TARGET_USES_QCOM_BSP_LEGACY)
 SOONG_CONFIG_nezukoQcomVars_uses_qti_camera_device := $(TARGET_USES_QTI_CAMERA_DEVICE)
 SOONG_CONFIG_nezukoGlobalVars_disable_postrender_cleanup := $(TARGET_DISABLE_POSTRENDER_CLEANUP)
+SOONG_CONFIG_nezukoGlobalVars_has_memfd_backport := $(TARGET_HAS_MEMFD_BACKPORT)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0
