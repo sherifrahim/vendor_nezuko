@@ -3,8 +3,9 @@ PRODUCT_PACKAGES += \
     NezukoSetupWizard \
     Updater \
     Terminal \
-    ThemePicker
-
+    ThemePicker \
+    QuickAccessWallet
+    
 # Extra tools in Nezuko
 PRODUCT_PACKAGES += \
     7z \
