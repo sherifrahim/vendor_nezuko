@@ -48,7 +48,7 @@ custom_dependencies = "nezuko.dependencies"
 org_manifest = "nezuko-devices"  # leave empty if org is provided in manifest
 org_display = "NezukoOS-Devices"  # needed for displaying
 
-github_auth = None
+github_auth = os.getenv('GITHUB_API_TOKEN', None)
 
 
 local_manifests = '.repo/local_manifests'
@@ -75,7 +75,7 @@ def add_auth(g_req):
         else:
             github_auth = ""
     if github_auth:
-        g_req.add_header("Authorization", "Basic %s" % github_auth)
+        g_req.add_header("Authorization", "token %s" % github_auth)
 
 
 def indent(elem, level=0):
