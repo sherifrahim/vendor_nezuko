@@ -49,6 +49,8 @@ SOONG_CONFIG_nezukoNvidiaVars += \
 SOONG_CONFIG_NAMESPACES += nezukoQcomVars
 SOONG_CONFIG_nezukoQcomVars += \
     legacy_hw_disk_encryption\
+    supports_audio_accessory \
+    supports_debug_accessory \
     should_wait_for_qsee \
     supports_extended_compress_format \
     supports_hw_fde \
@@ -81,6 +83,8 @@ SOONG_CONFIG_nezukoGlobalVars_has_memfd_backport := $(TARGET_HAS_MEMFD_BACKPORT)
 SOONG_CONFIG_nezukoGlobalVars_target_uses_prebuilt_dynamic_partitions := $(TARGET_USES_PREBUILT_DYNAMIC_PARTITIONS)
 SOONG_CONFIG_nezukoQcomVars_needs_camera_boottime_timestamp := $(TARGET_CAMERA_BOOTTIME_TIMESTAMP)
 SOONG_CONFIG_nezukoQcomVars_legacy_hw_disk_encryption := $(TARGET_LEGACY_HW_DISK_ENCRYPTION)
+SOONG_CONFIG_nezukoQcomVars_supports_audio_accessory := $(TARGET_QTI_USB_SUPPORTS_AUDIO_ACCESSORY)
+SOONG_CONFIG_nezukoQcomVars_supports_debug_accessory := $(TARGET_QTI_USB_SUPPORTS_DEBUG_ACCESSORY)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0
