@@ -17,4 +17,5 @@
 -->
 <resources>
     <dimen name="rounded_corner_content_padding">8dp</dimen>
+	<dimen name="biometric_dialog_corner_size">@*android:dimen/config_dialogCornerRadius</dimen>
 </resources>
