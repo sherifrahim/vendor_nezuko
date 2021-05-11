@@ -102,4 +102,10 @@
         <item>com.linkedin.android</item>
         <item>com.tencent.mm</item>
     </string-array>
+
+    <!-- System font packages (overlay in vendor) -->
+    <string-array name="config_fontPackages" translatable="false">
+        <item>com.custom.fonts</item>
+    </string-array>
+
 </resources>

@@ -109,6 +109,10 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
     TrebuchetQuickStep
 
+# Fonts
+PRODUCT_PACKAGES += \
+    Custom-Fonts
+
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/nezuko/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/nezuko/overlay/common
 
