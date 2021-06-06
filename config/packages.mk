@@ -46,6 +46,63 @@ PRODUCT_PACKAGES += \
     ssh-keygen \
     start-ssh
 
+PRODUCT_PACKAGES += \
+	AccentColorBlackOverlay \
+	AccentColorCinnamonOverlay \
+	AccentColorOceanOverlay \
+	AccentColorOrchidOverlay \
+	AccentColorSpaceOverlay \
+	AccentColorGreenOverlay \
+	AccentColorPurpleOverlay \
+	AccentColorPaletteOverlay \
+	AccentColorCarbonOverlay \
+	AccentColorSandOverlay \
+	AccentColorAmethystOverlay \
+	AccentColorAquamarineOverlay \
+	AccentColorTangerineOverlay \
+	DisplayCutoutEmulationCornerOverlay \
+	DisplayCutoutEmulationDoubleOverlay \
+    DisplayCutoutEmulationHoleOverlay \
+	DisplayCutoutEmulationTallOverlay \
+	DisplayCutoutEmulationWaterfallOverlay \
+	FontNotoSerifSourceOverlay \
+	IconPackCircularAndroidOverlay \
+	IconPackCircularLauncherOverlay \
+	IconPackCircularSettingsOverlay \
+	IconPackCircularSystemUIOverlay \
+	IconPackCircularThemePickerOverlay \
+	IconPackVictorAndroidOverlay \
+    IconPackVictorLauncherOverlay \
+    IconPackVictorSettingsOverlay \
+    IconPackVictorSystemUIOverlay \
+    IconPackVictorThemePickerOverlay \
+    IconPackSamAndroidOverlay \
+    IconPackSamLauncherOverlay \
+    IconPackSamSettingsOverlay \
+    IconPackSamSystemUIOverlay \
+    IconPackSamThemePickerOverlay \
+    IconPackKaiAndroidOverlay \
+    IconPackKaiLauncherOverlay \
+    IconPackKaiSettingsOverlay \
+    IconPackKaiSystemUIOverlay \
+    IconPackKaiThemePickerOverlay \
+	IconPackFilledAndroidOverlay \
+	IconPackFilledLauncherOverlay \
+	IconPackFilledSettingsOverlay \
+	IconPackFilledSystemUIOverlay \
+	IconPackFilledThemePickerOverlay \
+	IconPackRoundedAndroidOverlay \
+	IconPackRoundedLauncherOverlay \
+	IconPackRoundedSettingsOverlay \
+	IconPackRoundedSystemUIOverlay \
+	IconPackRoundedThemePickerOverlay \
+	IconShapePebbleOverlay \
+	IconShapeRoundedRectOverlay \
+	IconShapeSquircleOverlay \
+	IconShapeTaperedRectOverlay \
+	IconShapeTeardropOverlay \
+	IconShapeVesselOverlay \
+
 # rsync
 PRODUCT_PACKAGES += \
     rsync
