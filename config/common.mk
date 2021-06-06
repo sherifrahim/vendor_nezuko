@@ -118,5 +118,8 @@ DEVICE_PACKAGE_OVERLAYS += vendor/nezuko/overlay/common
 # Versioning
 include vendor/nezuko/config/version.mk
 
+# Include Nezextras
+include vendor/nezextras/nezextras.mk
+
 # Include extra packages
 include vendor/nezuko/config/packages.mk
