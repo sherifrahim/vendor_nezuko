@@ -16,7 +16,7 @@
 # -----------------------------------------------------------------
 # Nezuko OTA update package
 
-NEZUKO_TARGET_PACKAGE := $(PRODUCT_OUT)/Nezuko-$(NEZUKO_VERSION).zip
+NEZUKO_TARGET_PACKAGE := $(PRODUCT_OUT)/NezukoOS-$(NEZUKO_VERSION).zip
 
 MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
