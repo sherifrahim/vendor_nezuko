@@ -42,6 +42,11 @@ SOONG_CONFIG_nezukoGlobalVars += \
     target_uses_prebuilt_dynamic_partitions \
     uses_camera_parameter_lib
 
+ifneq ($(TARGET_FORCE_BUILD_FINGERPRINT),)
+SOONG_CONFIG_customGlobalVars += force_build_fingerprint
+endif
+
+
 SOONG_CONFIG_NAMESPACES += nezukoNvidiaVars
 SOONG_CONFIG_nezukoNvidiaVars += \
     uses_nv_enhancements
@@ -105,7 +110,9 @@ SOONG_CONFIG_nezukoQcomVars_qcom_display_headers_namespace := vendor/qcom/openso
 else
 SOONG_CONFIG_nezukoQcomVars_qcom_display_headers_namespace := $(QCOM_SOONG_NAMESPACE)/display
 endif
-
+ifneq ($(TARGET_FORCE_BUILD_FINGERPRINT),)
+SOONG_CONFIG_customGlobalVars_force_build_fingerprint := $(TARGET_FORCE_BUILD_FINGERPRINT)
+endif
 ifneq ($(TARGET_USE_QTI_BT_STACK),true)
 PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
 endif #TARGET_USE_QTI_BT_STACK
