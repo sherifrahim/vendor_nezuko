@@ -123,3 +123,4 @@ include vendor/nezextras/nezextras.mk
 
 # Include extra packages
 include vendor/nezuko/config/packages.mk
+include packages/overlays/Themes/themes.mk
