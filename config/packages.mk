@@ -102,7 +102,8 @@ PRODUCT_PACKAGES += \
 	IconShapeTaperedRectOverlay \
 	IconShapeTeardropOverlay \
 	IconShapeVesselOverlay \
-
+    MotoSignatureApp \
+    Styles \
 # rsync
 PRODUCT_PACKAGES += \
     rsync
