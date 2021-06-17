@@ -104,6 +104,8 @@ PRODUCT_PACKAGES += \
 	IconShapeVesselOverlay \
     MotoSignatureApp \
     Styles \
+    StitchImage \
+    StitchImageService
 # rsync
 PRODUCT_PACKAGES += \
     rsync
