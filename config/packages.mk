@@ -4,6 +4,7 @@ PRODUCT_PACKAGES += \
     Updater \
     Terminal \
     ThemePicker \
+    NezukoThemesStub \
     QuickAccessWallet
     
 # Extra tools in Nezuko
@@ -102,8 +103,6 @@ PRODUCT_PACKAGES += \
 	IconShapeTaperedRectOverlay \
 	IconShapeTeardropOverlay \
 	IconShapeVesselOverlay \
-    MotoSignatureApp \
-    Styles \
     StitchImage \
     StitchImageService
 # rsync
