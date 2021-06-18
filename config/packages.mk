@@ -105,6 +105,12 @@ PRODUCT_PACKAGES += \
 	IconShapeVesselOverlay \
     StitchImage \
     StitchImageService
+
+# Navbar
+PRODUCT_PACKAGES += \
+    GesturalNavigationOverlayLong \
+    GesturalNavigationOverlayMedium
+
 # rsync
 PRODUCT_PACKAGES += \
     rsync
