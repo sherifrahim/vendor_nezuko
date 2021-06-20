@@ -16,4 +16,5 @@ ADDITIONAL_BUILD_PROPERTIES += \
   ro.nezuko.build.date=$(BUILD_DATE) \
   ro.nezuko.buildtype=$(NEZUKO_BUILDTYPE) \
   ro.nezuko.fingerprint=$(NEZUKO_FINGERPRINT) \
-  ro.nezuko.device=$(NEZUKO_BUILD) 
+  ro.nezuko.device=$(NEZUKO_BUILD) \
+  org.nezuko.version=$(NEZUKOVERSION)

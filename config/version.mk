@@ -13,7 +13,7 @@
 # limitations under the License.
 
 ANDROID_VERSION := 11.0
-NEZUKOVERSION := v1.4
+NEZUKOVERSION := 1.4
 
 NEZUKO_BUILDTYPE ?= UNOFFICIAL
 NEZUKO_DATE_YEAR := $(shell date -u +%Y)
