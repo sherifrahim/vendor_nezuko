@@ -1,5 +1,5 @@
 BUILD_NUMBER_CUSTOM := $(shell date -u +%H%M)
-ifneq ($(filter OFFICIAL,$(NEZUKO_BUILDTYPE)),)
+ifneq ($(filter OFFICIAL,$(NEZUKO_BUILD_TYPE)),)
 BUILD_SIGNATURE_KEYS := release-keys
 else
 BUILD_SIGNATURE_KEYS := test-keys
@@ -11,10 +11,10 @@ ADDITIONAL_BUILD_PROPERTIES += \
 # NezukoOS System Version
 ADDITIONAL_BUILD_PROPERTIES += \
   ro.nezuko.version=$(NEZUKO_DISPLAY_VERSION) \
-  ro.nezuko.build.status=$(NEZUKO_BUILDTYPE) \
+  ro.nezuko.build.status=$(NEZUKO_BUILD_TYPE) \
   ro.modversion=$(NEZUKO_MOD_VERSION) \
   ro.nezuko.build.date=$(BUILD_DATE) \
-  ro.nezuko.buildtype=$(NEZUKO_BUILDTYPE) \
+  ro.nezuko.buildtype=$(NEZUKO_BUILD_TYPE) \
   ro.nezuko.fingerprint=$(NEZUKO_FINGERPRINT) \
   ro.nezuko.device=$(NEZUKO_BUILD) \
   org.nezuko.version=$(NEZUKOVERSION)
