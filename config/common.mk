@@ -140,6 +140,9 @@ include vendor/nezuko/config/version.mk
 # Include Nezextras
 include vendor/nezextras/nezextras.mk
 
+# BootAnimation
+-include vendor/nezuko/config/bootanimation.mk
+
 # Include extra packages
 include vendor/nezuko/config/packages.mk
 include packages/overlays/Themes/themes.mk
