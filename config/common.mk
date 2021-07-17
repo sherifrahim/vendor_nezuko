@@ -5,6 +5,10 @@ PRODUCT_BRAND ?= Nezuko
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
+TARGET_INCLUDE_GAPPS ?= true
+TARGET_INCLUDE_STOCK_ARCORE ?= false
+TARGET_INCLUDE_GOOGLE_RECORDER ?= false
+
 # Priv-app permissions
 PRODUCT_COPY_FILES += \
     vendor/nezuko/prebuilt/common/etc/permissions/privapp-permissions-nezuko.xml:system/etc/permissions/privapp-permissions-nezuko.xml
@@ -46,6 +50,12 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 endif
 endif
 
+ifeq ($(TARGET_INCLUDE_GAPPS), true)
+ifeq ($(NEZUKO_BUILD_TYPE), OFFICIAL)
+PRODUCT_PACKAGES += \
+    Updater
+endif
+endif
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
 ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
@@ -94,6 +104,11 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # TWRP
 ifeq ($(WITH_TWRP),true)
 include vendor/nezuko/config/twrp.mk
+endif
+
+# Inherit GAPPS
+ifeq ($(TARGET_INCLUDE_GAPPS), true)
+include vendor/gapps/config.mk
 endif
 
 # Do not include art debug targets

@@ -1,7 +1,6 @@
 # Nezuko packages
 PRODUCT_PACKAGES += \
     NezukoSetupWizard \
-    Updater \
     Terminal \
     ThemePicker \
     NezukoThemesStub \
