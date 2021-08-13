@@ -3,6 +3,7 @@ PRODUCT_PACKAGES += \
     NezukoSetupWizard \
     Terminal \
     ThemePicker \
+    RadiantExtras \
     NezukoThemesStub \
     QuickAccessWallet
     

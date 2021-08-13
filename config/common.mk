@@ -39,9 +39,10 @@ PRODUCT_COPY_FILES += \
     vendor/nezuko/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/nezuko/prebuilt/common/bin/50-lineage.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-lineage.sh
 
-# Font service Permissions
+# Permissions
 PRODUCT_COPY_FILES += \
     vendor/nezuko/config/permissions/privapp-permissions-system_ext.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-system_ext.xml \
+    vendor/nezuko/prebuilt/RadiantExtras/com.maitreya.nezukoextras.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.maitreya.nezukoextras.xml
 
 ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
