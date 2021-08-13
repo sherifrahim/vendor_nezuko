@@ -11,7 +11,8 @@ TARGET_INCLUDE_GOOGLE_RECORDER ?= false
 
 # Priv-app permissions
 PRODUCT_COPY_FILES += \
-    vendor/radiant/prebuilt/common/etc/permissions/privapp-permissions-radiant.xml:system/etc/permissions/privapp-permissions-radiant.xml
+    vendor/radiant/prebuilt/common/etc/permissions/privapp-permissions-radiant.xml:system/etc/permissions/privapp-permissions-radiant.xml \
+    vendor/radiant/prebuilt/common/etc/permissions/com.maitreya.nezukoextras.xml:system/etc/permissions/com.maitreya.nezukoextras.xml
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -42,7 +43,6 @@ PRODUCT_COPY_FILES += \
 # Permissions
 PRODUCT_COPY_FILES += \
     vendor/radiant/config/permissions/privapp-permissions-system_ext.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-system_ext.xml \
-    vendor/radiant/prebuilt/RadiantExtras/com.maitreya.nezukoextras.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.maitreya.nezukoextras.xml
 
 ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
@@ -111,11 +111,6 @@ ifeq ($(WITH_TWRP),true)
 include vendor/radiant/config/twrp.mk
 endif
 
-# Inherit GAPPS
-ifeq ($(TARGET_INCLUDE_GAPPS), true)
-include vendor/gapps/config.mk
-endif
-
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
@@ -157,12 +152,18 @@ DEVICE_PACKAGE_OVERLAYS += vendor/radiant/overlay/common
 # Versioning
 include vendor/radiant/config/version.mk
 
-# Include Nezextras
-include vendor/nezextras/nezextras.mk
-
 # BootAnimation
 -include vendor/radiant/config/bootanimation.mk
 
 # Include extra packages
 include vendor/radiant/config/packages.mk
 include packages/overlays/Themes/themes.mk
+
+# Include Nezextras
+include vendor/nezextras/nezextras.mk
+
+
+# Inherit GAPPS
+ifeq ($(TARGET_INCLUDE_GAPPS), true)
+include vendor/gapps/config.mk
+endif
