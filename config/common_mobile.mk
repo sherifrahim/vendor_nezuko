@@ -1,5 +1,5 @@
-# Inherit common mobile nezuko stuff
-$(call inherit-product, vendor/nezuko/config/common.mk)
+# Inherit common mobile radiant stuff
+$(call inherit-product, vendor/radiant/config/common.mk)
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
@@ -17,9 +17,9 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     Exchange2
 
-# Nezuko packages
+# Radiant packages
 PRODUCT_PACKAGES += \
-    NezukoWalls \
+    RadiantWalls \
     Profiles
 
 # Charger

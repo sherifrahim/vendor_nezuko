@@ -14,4 +14,4 @@
 # limitations under the License.
 
 # Rules for QCOM targets
-include $(TOPDIR)vendor/nezuko/build/core/qcom_target.mk
+include $(TOPDIR)vendor/radiant/build/core/qcom_target.mk

@@ -23,7 +23,7 @@ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
 LOCAL_MANIFEST_FILE := AndroidManifest.xml
 
-LOCAL_PACKAGE_NAME := NezukoThemesStub
+LOCAL_PACKAGE_NAME := RadiantThemesStub
 LOCAL_SDK_VERSION := current
 
 include $(BUILD_PACKAGE)

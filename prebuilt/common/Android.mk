@@ -18,10 +18,10 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := apns-conf.xml
 LOCAL_MODULE_CLASS := ETC
 
-DEFAULT_APNS_FILE := vendor/nezuko/prebuilt/common/etc/apns-conf.xml
+DEFAULT_APNS_FILE := vendor/radiant/prebuilt/common/etc/apns-conf.xml
 
 ifdef CUSTOM_APNS_FILE
-CUSTOM_APNS_SCRIPT := vendor/nezuko/tools/custom_apns.py
+CUSTOM_APNS_SCRIPT := vendor/radiant/tools/custom_apns.py
 FINAL_APNS_FILE := $(local-generated-sources-dir)/apns-conf.xml
 
 $(FINAL_APNS_FILE): PRIVATE_SCRIPT := $(CUSTOM_APNS_SCRIPT)

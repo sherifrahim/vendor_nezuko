@@ -1,16 +1,16 @@
-function __print_nezuko_functions_help() {
+function __print_radiant_functions_help() {
 cat <<EOF
-Additional Nezuko-OS functions:
+Additional Radiant-OS functions:
 - cout:            Changes directory to out.
 - mmp:             Builds all of the modules in the current directory and pushes them to the device.
 - mmap:            Builds all of the modules in the current directory and its dependencies, then pushes the package to the device.
 - mmmp:            Builds all of the modules in the supplied directories and pushes them to the device.
-- nezukogerrit:   A Git wrapper that fetches/pushes patch from/to NezukoOS Gerrit Review.
-- nezukorebase:   Rebase a Gerrit change and push it again.
-- nezukoremote:   Add git remote for NezukoOS Gerrit Review.
+- radiantgerrit:   A Git wrapper that fetches/pushes patch from/to ProjectRadiant Gerrit Review.
+- radiantrebase:   Rebase a Gerrit change and push it again.
+- radiantremote:   Add git remote for ProjectRadiant Gerrit Review.
 - aospremote:      Add git remote for matching AOSP repository.
 - cafremote:       Add git remote for matching CodeAurora repository.
-- githubremote:    Add git remote for Nezuko-OS Github.
+- githubremote:    Add git remote for Radiant-OS Github.
 - mka:             Builds using SCHED_BATCH on all processors.
 - mkap:            Builds the module(s) using mka and pushes them to the device.
 - cmka:            Cleans and builds using mka.
@@ -78,12 +78,12 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the nezuko model name
+            # This is probably just the radiant model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
 
-            lunch nezuko_$target-$variant
+            lunch radiant_$target-$variant
         fi
     fi
     return $?
@@ -94,7 +94,7 @@ alias bib=breakfast
 function eat()
 {
     if [ "$OUT" ] ; then
-        ZIPPATH=`ls -tr "$OUT"/nezuko-*.zip | tail -1`
+        ZIPPATH=`ls -tr "$OUT"/radiant-*.zip | tail -1`
         if [ ! -f $ZIPPATH ] ; then
             echo "Nothing to eat"
             return 1
@@ -102,13 +102,13 @@ function eat()
         echo "Waiting for device..."
         adb wait-for-device-recovery
         echo "Found device"
-        if (adb shell getprop ro.nezuko.device | grep -q "$NEZUKO_BUILD"); then
+        if (adb shell getprop ro.radiant.device | grep -q "$RADIANT_BUILD"); then
             echo "Rebooting to sideload for install"
             adb reboot sideload-auto-reboot
             adb wait-for-sideload
             adb sideload $ZIPPATH
         else
-            echo "The connected device does not appear to be $NEZUKO_BUILD, run away!"
+            echo "The connected device does not appear to be $RADIANT_BUILD, run away!"
         fi
         return $?
     else
@@ -232,43 +232,43 @@ function dddclient()
    fi
 }
 
-function nezukoremote()
+function radiantremote()
 {
     if ! git rev-parse --git-dir &> /dev/null
     then
         echo ".git directory not found. Please run this from the root directory of the Android repository you wish to set up."
         return 1
     fi
-    git remote rm nezuko 2> /dev/null
+    git remote rm radiant 2> /dev/null
     local REMOTE=$(git config --get remote.github.projectname)
-    local NEZUKO="true"
+    local RADIANT="true"
     if [ -z "$REMOTE" ]
     then
         REMOTE=$(git config --get remote.aosp.projectname)
-        NEZUKO="false"
+        RADIANT="false"
     fi
     if [ -z "$REMOTE" ]
     then
         REMOTE=$(git config --get remote.caf.projectname)
-        NEZUKO="false"
+        RADIANT="false"
     fi
 
-    if [ $NEZUKO = "false" ]
+    if [ $RADIANT = "false" ]
     then
         local PROJECT=$(echo $REMOTE | sed -e "s#platform/#android/#g; s#/#_#g")
-        local PFX="NezukoOS/"
+        local PFX="ProjectRadiant/"
     else
         local PROJECT=$REMOTE
     fi
 
-    local NEZUKO_USER=$(git config --get review.review.nezukoos.org.username)
-    if [ -z "$NEZUKO_USER" ]
+    local RADIANT_USER=$(git config --get review.review.radiantos.org.username)
+    if [ -z "$RADIANT_USER" ]
     then
-        git remote add nezuko ssh://review.nezukoos.org:29418/$PFX$PROJECT
+        git remote add radiant ssh://review.radiantos.org:29418/$PFX$PROJECT
     else
-        git remote add nezuko ssh://$NEZUKO_USER@review.nezukoos.org:29418/$PFX$PROJECT
+        git remote add radiant ssh://$RADIANT_USER@review.radiantos.org:29418/$PFX$PROJECT
     fi
-    echo "Remote 'nezuko' created"
+    echo "Remote 'radiant' created"
 }
 
 function aospremote()
@@ -336,7 +336,7 @@ function githubremote()
 
     local PROJECT=$(echo $REMOTE | sed -e "s#platform/#android/#g; s#/#_#g")
 
-    git remote add github https://github.com/Nezuko-OS/$PROJECT
+    git remote add github https://github.com/Radiant-OS/$PROJECT
     echo "Remote 'github' created"
 }
 
@@ -367,14 +367,14 @@ function installboot()
     adb wait-for-device-recovery
     adb root
     adb wait-for-device-recovery
-    if (adb shell getprop ro.nezuko.device | grep -q "$NEZUKO_BUILD");
+    if (adb shell getprop ro.radiant.device | grep -q "$RADIANT_BUILD");
     then
         adb push $OUT/boot.img /cache/
         adb shell dd if=/cache/boot.img of=$PARTITION
         adb shell rm -rf /cache/boot.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $NEZUKO_BUILD, run away!"
+        echo "The connected device does not appear to be $RADIANT_BUILD, run away!"
     fi
 }
 
@@ -405,14 +405,14 @@ function installrecovery()
     adb wait-for-device-recovery
     adb root
     adb wait-for-device-recovery
-    if (adb shell getprop ro.nezuko.device | grep -q "$NEZUKO_BUILD");
+    if (adb shell getprop ro.radiant.device | grep -q "$RADIANT_BUILD");
     then
         adb push $OUT/recovery.img /cache/
         adb shell dd if=/cache/recovery.img of=$PARTITION
         adb shell rm -rf /cache/recovery.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $NEZUKO_BUILD, run away!"
+        echo "The connected device does not appear to be $RADIANT_BUILD, run away!"
     fi
 }
 
@@ -432,13 +432,13 @@ function makerecipe() {
     if [ "$REPO_REMOTE" = "github" ]
     then
         pwd
-        nezukoremote
-        git push nezuko HEAD:refs/heads/'$1'
+        radiantremote
+        git push radiant HEAD:refs/heads/'$1'
     fi
     '
 }
 
-function nezukogerrit() {
+function radiantgerrit() {
     if [ "$(__detect_shell)" = "zsh" ]; then
         # zsh does not define FUNCNAME, derive from funcstack
         local FUNCNAME=$funcstack[1]
@@ -448,7 +448,7 @@ function nezukogerrit() {
         $FUNCNAME help
         return 1
     fi
-    local user=`git config --get review.review.nezukoos.org.username`
+    local user=`git config --get review.review.radiantos.org.username`
     local review=`git config --get remote.github.review`
     local project=`git config --get remote.github.projectname`
     local command=$1
@@ -484,7 +484,7 @@ EOF
             case $1 in
                 __cmg_*) echo "For internal use only." ;;
                 changes|for)
-                    if [ "$FUNCNAME" = "nezukogerrit" ]; then
+                    if [ "$FUNCNAME" = "radiantgerrit" ]; then
                         echo "'$FUNCNAME $1' is deprecated."
                     fi
                     ;;
@@ -577,7 +577,7 @@ EOF
                 $local_branch:refs/for/$remote_branch || return 1
             ;;
         changes|for)
-            if [ "$FUNCNAME" = "nezukogerrit" ]; then
+            if [ "$FUNCNAME" = "radiantgerrit" ]; then
                 echo >&2 "'$FUNCNAME $command' is deprecated."
             fi
             ;;
@@ -676,15 +676,15 @@ EOF
     esac
 }
 
-function nezukorebase() {
+function radiantrebase() {
     local repo=$1
     local refs=$2
     local pwd="$(pwd)"
     local dir="$(gettop)/$repo"
 
     if [ -z $repo ] || [ -z $refs ]; then
-        echo "Nezuko-OS Gerrit Rebase Usage: "
-        echo "      nezukorebase <path to project> <patch IDs on Gerrit>"
+        echo "Radiant-OS Gerrit Rebase Usage: "
+        echo "      radiantrebase <path to project> <patch IDs on Gerrit>"
         echo "      The patch IDs appear on the Gerrit commands that are offered."
         echo "      They consist on a series of numbers and slashes, after the text"
         echo "      refs/changes. For example, the ID in the following command is 26/8126/2"
@@ -705,7 +705,7 @@ function nezukorebase() {
     echo "Bringing it up to date..."
     repo sync .
     echo "Fetching change..."
-    git fetch "http://review.nezukoos.org/p/$repo" "refs/changes/$refs" && git cherry-pick FETCH_HEAD
+    git fetch "http://review.radiantos.org/p/$repo" "refs/changes/$refs" && git cherry-pick FETCH_HEAD
     if [ "$?" != "0" ]; then
         echo "Error cherry-picking. Not uploading!"
         return
@@ -789,7 +789,7 @@ function dopush()
         echo "Device Found."
     fi
 
-    if (adb shell getprop ro.nezuko.device | grep -q "$NEZUKO_BUILD") || [ "$FORCE_PUSH" = "true" ];
+    if (adb shell getprop ro.radiant.device | grep -q "$RADIANT_BUILD") || [ "$FORCE_PUSH" = "true" ];
     then
     # retrieve IP and PORT info if we're using a TCP connection
     TCPIPPORT=$(adb devices \
@@ -908,7 +908,7 @@ EOF
     rm -f $OUT/.log
     return 0
     else
-        echo "The connected device does not appear to be $NEZUKO_BUILD, run away!"
+        echo "The connected device does not appear to be $RADIANT_BUILD, run away!"
     fi
 }
 
@@ -921,14 +921,14 @@ alias cmkap='dopush cmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/nezuko/build/tools/repopick.py $@
+    $T/vendor/radiant/build/tools/repopick.py $@
 }
 
 function fixup_common_out_dir() {
     common_out_dir=$(get_build_var OUT_DIR)/target/common
     target_device=$(get_build_var TARGET_DEVICE)
     common_target_out=common-${target_device}
-    if [ ! -z $NEZUKO_FIXUP_COMMON_OUT ]; then
+    if [ ! -z $RADIANT_FIXUP_COMMON_OUT ]; then
         if [ -d ${common_out_dir} ] && [ ! -L ${common_out_dir} ]; then
             mv ${common_out_dir} ${common_out_dir}-${target_device}
             ln -s ${common_target_out} ${common_out_dir}

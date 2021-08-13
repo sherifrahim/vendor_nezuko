@@ -15,13 +15,13 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/nezuko_arm.mk \
-    $(LOCAL_DIR)/nezuko_arm64.mk \
-    $(LOCAL_DIR)/nezuko_x86.mk \
-    $(LOCAL_DIR)/nezuko_x86_64.mk
+    $(LOCAL_DIR)/radiant_arm.mk \
+    $(LOCAL_DIR)/radiant_arm64.mk \
+    $(LOCAL_DIR)/radiant_x86.mk \
+    $(LOCAL_DIR)/radiant_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    nezuko_arm-userdebug \
-    nezuko_arm64-userdebug \
-    nezuko_x86-userdebug \
-    nezuko_x86_64-userdebug
+    radiant_arm-userdebug \
+    radiant_arm64-userdebug \
+    radiant_x86-userdebug \
+    radiant_x86_64-userdebug

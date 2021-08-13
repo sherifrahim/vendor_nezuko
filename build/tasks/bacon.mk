@@ -14,14 +14,14 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# Nezuko OTA update package
+# Radiant OTA update package
 
-NEZUKO_TARGET_PACKAGE := $(PRODUCT_OUT)/NezukoOS-$(NEZUKO_VERSION).zip
+RADIANT_TARGET_PACKAGE := $(PRODUCT_OUT)/ProjectRadiant-$(RADIANT_VERSION).zip
 
 MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(NEZUKO_TARGET_PACKAGE)
-	$(hide) $(MD5) $(NEZUKO_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(NEZUKO_TARGET_PACKAGE).md5sum
-	@echo "Package Complete: $(NEZUKO_TARGET_PACKAGE)" >&2
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(RADIANT_TARGET_PACKAGE)
+	$(hide) $(MD5) $(RADIANT_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(RADIANT_TARGET_PACKAGE).md5sum
+	@echo "Package Complete: $(RADIANT_TARGET_PACKAGE)" >&2

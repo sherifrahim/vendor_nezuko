@@ -42,14 +42,14 @@ except ImportError:
 
 DEBUG = False
 
-custom_local_manifest = ".repo/local_manifests/nezuko.xml"
+custom_local_manifest = ".repo/local_manifests/radiant.xml"
 custom_default_revision =  os.getenv('ROOMSERVICE_DEFAULT_BRANCH', '11')
-custom_dependencies = "nezuko.dependencies"
-org_manifest = "nezuko-devices"  # leave empty if org is provided in manifest
-org_display = "NezukoOS-Devices"  # needed for displaying
+custom_dependencies = "radiant.dependencies"
+org_manifest = "radiant-devices"  # leave empty if org is provided in manifest
+org_display = "ProjectRadiant-Devices"  # needed for displaying
 
 default_manifest = ".repo/manifests/default.xml"
-nezuko_manifest = ".repo/manifests/snippets/nezuko.xml"
+radiant_manifest = ".repo/manifests/snippets/radiant.xml"
 lineage_manifest = ".repo/manifests/snippets/lineage.xml"
 
 github_auth = os.getenv('GITHUB_API_TOKEN', None)
@@ -134,7 +134,7 @@ def is_in_manifest(project_path):
 def add_to_manifest(repos, fallback_branch=None):
     lm = load_manifest(custom_local_manifest)
     mlm = load_manifest(default_manifest)
-    nezukom = load_manifest(nezuko_manifest)
+    radiantm = load_manifest(radiant_manifest)
     lineagem = load_manifest(lineage_manifest)
 
     for repo in repos:
@@ -158,8 +158,8 @@ def add_to_manifest(repos, fallback_branch=None):
         existing_m_project = None
         if exists_in_tree(mlm, repo_path) != None:
            existing_m_project = exists_in_tree(mlm, repo_path)
-        elif exists_in_tree(nezukom, repo_path) != None:
-             existing_m_project = exists_in_tree(nezukom, repo_path)
+        elif exists_in_tree(radiantm, repo_path) != None:
+             existing_m_project = exists_in_tree(radiantm, repo_path)
         elif exists_in_tree(lineagem, repo_path) != None:
              existing_m_project = exists_in_tree(lineagem, repo_path)
 

@@ -1,4 +1,4 @@
-# Copyright (C) 2021 NezukoOS
+# Copyright (C) 2021 ProjectRadiant
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #Bootanimation
-LOCAL_PATH := vendor/nezuko
+LOCAL_PATH := vendor/radiant
 
 ifeq ($(TARGET_BOOT_ANIMATION_RES),720)
 # Why do these exist in 2021 ewwwwwwwwww

@@ -12,11 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, build/target/product/aosp_x86_64.mk)
+$(call inherit-product, build/target/product/aosp_x86.mk)
 
-include vendor/nezuko/build/target/product/nezuko_generic_target.mk
+include vendor/radiant/build/target/product/lineage_generic_target.mk
 
-PRODUCT_NAME := nezuko_x86_64
+TARGET_USES_64_BIT_BINDER := true
 
-PRODUCT_SDK_ADDON_NAME := nezuko
+PRODUCT_NAME := radiant_x86
+
+PRODUCT_SDK_ADDON_NAME := radiant
 PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties

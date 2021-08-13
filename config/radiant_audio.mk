@@ -1,10 +1,10 @@
 #
-# Nezuko Audio Files
+# Radiant Audio Files
 #
 
-ALARM_PATH := vendor/nezuko/prebuilt/common/media/audio/alarms
-NOTIFICATION_PATH := vendor/nezuko/prebuilt/common/media/audio/notifications
-RINGTONE_PATH := vendor/nezuko/prebuilt/common/media/audio/ringtones
+ALARM_PATH := vendor/radiant/prebuilt/common/media/audio/alarms
+NOTIFICATION_PATH := vendor/radiant/prebuilt/common/media/audio/notifications
+RINGTONE_PATH := vendor/radiant/prebuilt/common/media/audio/ringtones
 
 # Alarms
 PRODUCT_COPY_FILES += \

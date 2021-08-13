@@ -1,13 +1,13 @@
-# Nezuko packages
+# Radiant packages
 PRODUCT_PACKAGES += \
-    NezukoSetupWizard \
+    RadiantSetupWizard \
     Terminal \
     ThemePicker \
     RadiantExtras \
-    NezukoThemesStub \
+    RadiantThemesStub \
     QuickAccessWallet
     
-# Extra tools in Nezuko
+# Extra tools in Radiant
 PRODUCT_PACKAGES += \
     7z \
     awk \
