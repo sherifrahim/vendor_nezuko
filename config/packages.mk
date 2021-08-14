@@ -4,7 +4,6 @@ PRODUCT_PACKAGES += \
     Terminal \
     ThemePicker \
     RadiantExtras \
-    com.maitreya.nezukoextras \
     RadiantExtras \
     RadiantThemesStub \
     QuickAccessWallet
